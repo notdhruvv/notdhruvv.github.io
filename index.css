@@ -12,7 +12,7 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  background: url(images/nike\ header\ 2.jpg);
+  background: url('https://raw.githubusercontent.com/notdhruvv/notdhruvv.github.io/main/nikeheader2.jpg');
   background-size: cover;
   background-position-x: 20%;
   background-position-y: 20%;
