@@ -1,0 +1,14 @@
+{
+  "name": "e-commerce-website-1.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ex.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "replicate": "^0.30.1"
+  }
+}
