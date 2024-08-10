@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <h2>Login</h2>
+            <form id="login-form" class="login-form">
+                <div class="input-container">
+                    <label for="username">Username</label>&nbsp
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-container">
+                    <label for="password">Password</label>&nbsp
+                    <input type="password" id="password" name="password" required>
+                    <input type="checkbox" id="showPasswordCheckbox" checked="checked"> Show Password
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        .input-container {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+    <script>
+        const form = document.getElementById('login-form');
+
+const passwordInput = form.querySelector('input[type="password"]');
+const showPasswordCheckbox = document.querySelector('input[type="checkbox"]');
+
+showPasswordCheckbox.addEventListener('change', function() {
+    passwordInput.type = showPasswordCheckbox.checked ? 'text' : 'password';
+});
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const username = form.username.value;
+    const password = form.password.value;
+
+    // Replace these with your actual database of usernames and passwords
+    const usernames = ['Esha', 'esha2001@'];
+    const passwords = ['Eshaa', 'esha2001@'];
+
+    let isLoginSuccessful = false;
+
+    for (let i = 0; i < usernames.length; i++) {
+        if (username === usernames[i] && password === passwords[i]) {
+            isLoginSuccessful = true;
+            break;
+        }
+    }
+
+    if (isLoginSuccessful) {
+        // Successful login, redirect to the home page
+        window.location.href = 'home.html';
+    } else {
+        // Invalid login, show alert
+        alert('Wrong username or password.');
+    }
+
+    // Check if username starts with capital letter and is at least 4 characters long
+    if (!/^[A-Z]+.{3,}$/.test(username)) {
+        alert('Username must start with a capital letter and be at least 4 characters long.');
+        return false;
+    }
+
+    // Check if password has at least 8 characters long and contains at least one special character from (@#$&)
+    if (!/^.{8,}$/.test(password) || !/[@#$&]/.test(password)) {
+        alert('Password must be at least 8 characters long and contain at least one special character from (@#$&).');
+        return false;
+    }
+});
+
+    </script>
+</body>
+</html>
